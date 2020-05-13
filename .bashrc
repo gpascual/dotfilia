@@ -7,4 +7,6 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+
 for f in $HOME/.config/bash.d/*.bash; do source $f; done
+
