@@ -4,3 +4,4 @@
 
 [alias]
 	rmme = !git branch --merged | egrep -v \"(^\\*|master|stable)\" | xargs -r git branch -d
+	st = status -sb
