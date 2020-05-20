@@ -16,3 +16,7 @@ export COMPOSER_BIN_DIR="$HOME/.local/bin"
 export COMPOSER_CACHE_DIR="$XDG_CACHE_HOME/composer"
 export COMPOSER_HOME="$XDG_CONFIG_HOME/composer"
 
+# npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm.conf"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_PREFIX="$HOME/.local"
