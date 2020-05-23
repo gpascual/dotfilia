@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+rootMenu=${XDG_MENU_ROOT_MENU:=/etc/xdg/menus/arch-applications.menu}
+
+xdg_menu --root-menu $rootMenu --format WindowMaker\
+    | grep -v -e MENU -e END \
+    | sed 's/^.*"\(.*\)".*$/\1/g' \
+    | sort -uf \
+    | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
+    | xargs -r -I {} sh -c "xdg_menu --root-menu $rootMenu --format WindowMaker | grep '{}'" \
+    | sort -uf \
+    | sed 's/^.*EXEC \(.*\)$/\1/g' \
+    | xargs -r -I {} sh -c "{} &"
+
