@@ -2,13 +2,26 @@
 
 rootMenu=${XDG_MENU_ROOT_MENU:=/etc/xdg/menus/arch-applications.menu}
 
-xdg_menu --root-menu $rootMenu --format WindowMaker\
-    | grep -v -e MENU -e END \
-    | sed 's/^.*"\(.*\)".*$/\1/g' \
-    | sort -uf \
-    | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
-    | xargs -r -I {} sh -c "xdg_menu --root-menu $rootMenu --format WindowMaker | grep '{}'" \
-    | sort -uf \
-    | sed 's/^.*EXEC \(.*\)$/\1/g' \
+listApplicationNames() {
+    # awk takes care of:
+    # - trimming lines to shown application name only
+    # - removing duplicate lines
+    # - sorting
+    xdg_menu --root-menu $rootMenu --format WindowMaker \
+        | awk 'match($0, /^\s*"(.+)"\s*EXEC.*$/, a) && !x[$0]++ {print a[1] | "sort" }'
+}
+
+getApplicationCommand() {
+    # read the app name coming from the pipe
+    read appName
+
+    # Locate the app command
+    # NOTE: awk places a backslash before each whitespace to prevent path errors if a folder name has spaces. It is not affecting "sh -c"
+    xdg_menu --root-menu $rootMenu --format WindowMaker | grep "\"${appName}\"" \
+        | awk 'match($0, /^.*EXEC\s*(.*)\s*$/, a) && !x[$0]++ {gsub(/ /,"\\ ",a[1]); print a[1]}'
+}
+
+listApplicationNames | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
+    | getApplicationCommand \
     | xargs -r -I {} sh -c "{} &"
 
