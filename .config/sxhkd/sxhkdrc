@@ -1,0 +1,4 @@
+# show clipmenu
+ctrl + alt + h
+    clipmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12"
+
