@@ -7,8 +7,8 @@ listApplicationNames() {
     # - trimming lines to shown application name only
     # - removing duplicate lines
     # - sorting
-    xdg_menu --root-menu $rootMenu --format WindowMaker \
-        | awk 'match($0, /^\s*"(.+)"\s*EXEC.*$/, a) && !x[$0]++ {print a[1] | "sort" }'
+    xdg_menu --root-menu $rootMenu --format twm \
+        | awk 'match($0, /^\s*"(.+)"\s*f\.exec.*$/, a) && !x[$0]++ {print a[1] | "sort" }'
 }
 
 getApplicationCommand() {
@@ -17,11 +17,11 @@ getApplicationCommand() {
 
     # Locate the app command
     # NOTE: awk places a backslash before each whitespace to prevent path errors if a folder name has spaces. It is not affecting "sh -c"
-    xdg_menu --root-menu $rootMenu --format WindowMaker | grep "\"${appName}\"" \
-        | awk 'match($0, /^.*EXEC\s*(.*)\s*$/, a) && !x[$0]++ {gsub(/ /,"\\ ",a[1]); print a[1]}'
+    xdg_menu --root-menu $rootMenu --format twm | grep "\"${appName}\"" \
+        | awk 'match($0, /^.*f.exec "exec\s*(.*)\s*"$/, a) && !x[$0]++ {gsub(/ /,"\\ ",a[1]); print a[1]}'
 }
 
 listApplicationNames | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
     | getApplicationCommand \
-    | xargs -r -I {} sh -c "{} &"
+    | xargs -r -I {} sh -c "{}"
 
