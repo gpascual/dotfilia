@@ -10,7 +10,12 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # source bash configs and stuff
-for f in $HOME/.config/bash.d/*.bash; do source $f; done
+if [ -d $XDG_CONFIG_HOME/bash.d ] ; then
+ for f in $XDG_CONFIG_HOME/bash.d/?[!.]* ; do
+  . "$f"
+ done
+ unset f
+fi
 
 # broot
 source /home/gonzalo/.config/broot/launcher/bash/br
