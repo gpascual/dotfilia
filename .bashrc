@@ -16,7 +16,3 @@ if [ -d $XDG_CONFIG_HOME/bash.d ] ; then
  done
  unset f
 fi
-
-# broot
-source /home/gonzalo/.config/broot/launcher/bash/br
-
