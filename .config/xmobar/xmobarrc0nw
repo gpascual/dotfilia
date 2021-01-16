@@ -1,0 +1,61 @@
+
+-- Material Colors
+-- primaryColor="#424242" -- Grey 800
+-- primaryLightColor="#6d6d6d"
+-- primaryDarkColor="#1b1b1b"
+-- secondaryColor="#b388ff" -- Deep Purple A100
+-- secondaryLightColor="#e7b9ff"
+-- secondaryDarkColor="#805acb"
+-- primaryTextColor="#ffffff"
+-- secondaryTextColor="#000000"
+-- alert="#d32f2f"
+-- success="#4caf50"
+-- warning="#f9a825"
+
+Config { font = "xft:Noto Sans Bold:pixelsize=18:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Symbols Nerd Font:pixelsize=20:antialias=true:hinting=true"
+                             , "xft:Symbols Nerd Font:pixelsize=28:antialias=true:hinting=true" ]
+       , borderColor = "#1b1b1b"
+       , border = NoBorder
+       , bgColor = "#1b1b1b"
+       , fgColor = "#ffffff"
+       , alpha = 255
+       , position = TopP 0 416 -- Left padding leaves space for system tray (8 icons 24px wide and 8px left and right paddings) and right xmobar (200px)
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = False
+       , commands = [
+		    -- Prints out items such workspaces, layout, etc.
+                    Run UnsafeStdinReader
+                    -- Time and date
+                    , Run Date "<fn=1>\xf133</fn> %a %b %_d %Y %H:%M" "date" 50
+                    -- Cpu usage in percent
+                    , Run Cpu [ "-t", "<fn=1>\xf6c4</fn> <total>%"
+                              , "-L", "10"
+                              , "-l", "#4caf50"
+                              , "-H", "50"
+                              , "-h", "#f9a825"
+                              ] 20
+                    -- Ram used number and percent
+                    , Run Memory [ "-t", "<fn=1>\xf85a</fn> <used>MB"
+                                 , "-L", "5333"
+                                 , "-l", "#4caf50"
+                                 , "-H", "10667"
+                                 , "-h", "#f9a825"
+                                 ] 20
+                    -- Network up and down
+                    , Run Network "enp30s0f3u4" ["-t", "<fn=1>\xf0aa</fn> <rx>kb <fn=1>\xf0ab</fn> <tx>kb"] 20
+                    -- , Run Network "enp30s0f3u4" ["-L", "0", "-H", "32"
+		    --                              "--normal", "green", "--high", "red"] 20
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> %cpu% <fc=#6d6d6d>|</fc> %memory% <fc=#6d6d6d>|</fc> %enp30s0f3u4% <fc=#6d6d6d>|</fc>"
+       }
+
