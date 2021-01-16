@@ -1,6 +1,6 @@
-alias dotfilia='/usr/bin/git --git-dir=$HOME/.local/.dotfilia.git/ --work-tree=$HOME'
-alias dotfilia-untrack-fish-variables='dotfilia update-index --assume-unchanged $HOME/.config/fish/fish_variables'
-alias dotfilia-track-fish-variables='dotfilia update-index --no-assume-unchanged $HOME/.config/fish/fish_variables'
+alias dots='/usr/bin/git --git-dir=$HOME/.local/dotfilia.git/ --work-tree=$HOME'
+alias dots-untrack-fish-variables='dots update-index --assume-unchanged $HOME/.config/fish/fish_variables'
+alias dots-track-fish-variables='dots update-index --no-assume-unchanged $HOME/.config/fish/fish_variables'
 
-dotfilia-untrack-fish-variables
+dots-untrack-fish-variables
 
