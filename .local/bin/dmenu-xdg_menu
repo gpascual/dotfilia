@@ -2,26 +2,39 @@
 
 rootMenu=${XDG_MENU_ROOT_MENU:=/etc/xdg/menus/arch-applications.menu}
 
+xdgMenuContents=`xdg_menu --root-menu $rootMenu --format twm`
+
+# awk takes care of:
+# - trimming lines to shown application name only
+# - removing duplicate lines
+# - sorting
+awkListAppsExpr='match($0, /^\s*"(.+)"\s*f\.exec "exec\s*(.*)\s*&\s*"$/, a) && !x[$0]++ {entry=a[1]": "a[2]; print entry | "sort"}'
+
+# locate the app command
+# NOTE: awk places a backslash before each whitespace ("gsub(/ /,...)") to prevent path errors if a folder name has spaces.
+#       It is not affecting "sh -c"
+awkExtractExecExpr='match($0, /^.*f\.exec "exec\s*(.*)\s*"$/, a) && !x[$0]++ {gsub(/ /,"\\ ",a[1]); print a[1]}'
+
 listApplicationNames() {
-    # awk takes care of:
-    # - trimming lines to shown application name only
-    # - removing duplicate lines
-    # - sorting
-    xdg_menu --root-menu $rootMenu --format twm \
-        | awk 'match($0, /^\s*"(.+)"\s*f\.exec "exec\s*(.*)\s*&\s*"$/, a) && !x[$0]++ {entry=a[1]": "a[2]; print entry | "sort" }'
+    echo "${xdgMenuContents}" | awk "${awkListAppsExpr}"
 }
 
 getApplicationCommand() {
     # read the app name coming from the pipe
-    read appName
+    read dmenuSelection
 
-    # Locate the app command
-    # NOTE: awk places a backslash before each whitespace to prevent path errors if a folder name has spaces. It is not affecting "sh -c"
-    xdg_menu --root-menu $rootMenu --format twm | grep "\"${appName}\"" \
-        | awk 'match($0, /^.*f\.exec "exec\s*(.*)\s*"$/, a) && !x[$0]++ {gsub(/ /,"\\ ",a[1]); print a[1]}'
+    # isolate the name
+    appName=`echo $dmenuSelection | sed -E 's/^(.*):.*$/\1/g'`
+
+    echo "${xdgMenuContents}" | grep "\"${appName}\"" | awk "$awkExtractExecExpr"
+
+    unset appMatch appName
 }
 
-listApplicationNames | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
+listApplicationNames \
+    | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
     | getApplicationCommand \
     | xargs -r -I {} sh -c "{}"
+
+unset rootMenu xdgMenuContents awkListAppsExpr awkExtractExecExpr
 
