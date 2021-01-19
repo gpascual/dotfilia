@@ -37,9 +37,9 @@ wide = renamed [Replace "wide"] $ addSpace (Mirror $ Tall nmaster delta mirrorRa
 
 full = renamed [Replace "full"] Full
 
-chatLayouts = center
+chatLayouts = full ||| center
 
-codeLayouts = (tall ||| full)
+codeLayouts = tall ||| full
 
 dataLayouts = full
 
