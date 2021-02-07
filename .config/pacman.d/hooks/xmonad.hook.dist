@@ -1,0 +1,12 @@
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Type=Package
+Target=xmonad*
+Target=haskell*
+
+[Action]
+Description=Rebuild xmonad
+When=PostTransaction
+Exec=/bin/sh -c "runuser -l $( who | cut -d ' ' -f1 | uniq) -c 'xmonad --recompile'"
+
