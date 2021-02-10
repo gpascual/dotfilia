@@ -28,11 +28,6 @@ fi
 export CM_DIR="$XDG_CACHE_HOME"
 export CM_MAX_CLIPS=500
 
-# xmonad
-export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
-export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
-export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
-
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
