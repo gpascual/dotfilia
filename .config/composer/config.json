@@ -1,5 +1,6 @@
 {
     "config": {
         "bin-dir": "{$home}/../../.local/bin",
-        "data-dir": "{$home}/../../.local/share/composer"}
+        "data-dir": "{$home}/../../.local/share/composer",
+        "vendor-dir": "{$home}/../../.local/share/composer/vendor"}
 }
