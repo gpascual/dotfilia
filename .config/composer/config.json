@@ -1,0 +1,5 @@
+{
+    "config": {
+        "bin-dir": "{$home}/../../.local/bin",
+        "data-dir": "{$home}/../../.local/share/composer"}
+}
