@@ -2,3 +2,12 @@
 ctrl + alt + h
     clipmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12"
 
+@Print
+    gnome-screenshot -f $(xdg-user-dir PICTURES)/screenshot-$(date -Iseconds).jpg
+
+ctrl + @Print
+    gnome-screenshot --area --clipboard -f /tmp/screenshot_$USER.png && cat /tmp/screenshot_$USER.png | xclip -i -selection clipboard -target image/png; rm /tmp/screenshot_$USER.png
+
+ctrl + shift + @Print
+    gnome-screenshot --area --clipboard -f $(xdg-user-dir PICTURES)/screenshot-$(date -Iseconds).jpg
+
