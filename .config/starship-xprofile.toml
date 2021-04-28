@@ -78,9 +78,9 @@ style = 'red bold'
 
 [character]
 format = '$symbol '
-success_symbol = '[>](bold green)'
-error_symbol = '[>](bold red)'
-vicmd_symbol = '[<](bold green)'
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'
+vicmd_symbol = '[❮](bold green)'
 disabled = false
 
 [cmake]
@@ -154,11 +154,13 @@ truncate_to_repo = false
 fish_style_pwd_dir_length = 0
 use_logical_path = true
 #format = '[$path]($style)[$read_only]($read_only_style) '
-format = "[\\\\\\\\ $path ]($style)[($read_only )]($read_only_style)[\\\\\\\\](fg:254) "
-style = 'cyan bold'
+format = "[](bg:242 fg:238)[ $path ]($style)[($read_only )]($read_only_style)[](fg:242) "
+#style = 'cyan bold'
+style = "bg:242 fg:15"
 disabled = false
-read_only = 'LOCK'
-read_only_style = 'red'
+read_only = '🔒'
+#read_only_style = 'red'
+read_only_style = "bg:242 fg:9"
 #truncation_symbol = ''
 truncation_length = 3
 home_symbol = '~'
@@ -250,7 +252,7 @@ disabled = false
 
 [git_branch]
 format = 'on [$symbol$branch]($style)(:[$remote]($style)) '
-symbol = 'git: '
+symbol = ' '
 #style = 'bold purple'
 style = "bold green"
 truncation_length = 9223372036854775807
@@ -259,13 +261,14 @@ only_attached = false
 always_show_remote = false
 disabled = false
 
+
 [git_commit]
 commit_hash_length = 7
 format = '[\($hash$tag\)]($style) '
 style = 'green bold'
 only_detached = true
 disabled = false
-tag_symbol = 't: '
+tag_symbol = '🏷  '
 #tag_disabled = true
 tag_disabled = false
 
@@ -285,12 +288,12 @@ disabled = false
 format = '([\[$all_status$ahead_behind\]]($style) )'
 style = 'red bold'
 stashed = '\$'
-ahead = '->'
-behind = '<-'
-diverged = '<->'
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
 conflicted = '='
-deleted = 'x'
-renamed = '>>'
+deleted = '✘'
+renamed = '»'
 modified = '!'
 staged = '+'
 untracked = '?'
@@ -367,8 +370,8 @@ detect_folders = []
 [jobs]
 threshold = 1
 #format = '[$symbol$number]($style) '
-format = "[\\\\\\\\ $symbol$number ]($style)"
-symbol = '+'
+format = "[ $symbol$number ]($style)"
+symbol = '✦'
 style = 'bold blue'
 disabled = false
 
@@ -625,7 +628,7 @@ detect_folders = ['.metals']
 
 [shell]
 #format = '$indicator '
-format = "[$indicator ](bold fg:135)[\\\\\\\\ ](fg:254)"
+format = "[$indicator ](bold fg:135)[ ](fg:254)"
 #bash_indicator = 'bsh'
 bash_indicator = " \\$_"
 #fish_indicator = 'fsh'
@@ -654,7 +657,7 @@ disabled = false
 
 [status]
 #format = '[$symbol$status]($style) '
-format = "[\\\\\\\\ $status (\\($common_meaning\\) )]($style)"
+format = "[ $status (\\($common_meaning\\) )]($style)"
 symbol = '✖'
 not_executable_symbol = '🚫'
 not_found_symbol = '🔍'
@@ -698,11 +701,12 @@ utc_time_offset = 'local'
 time_range = '-'
 
 [username]
-format = "   [\\\\\\\\ $user ]($style)"
+#format = '[$user]($style) in '
+format = "   [](fg:254)[ $user ]($style)"
 #style_root = 'red bold'
 style_root = "bold red"
 #style_user = 'yellow bold'
-style_user = "bold fg:254"
+style_user = "bold bg:254 fg:242"
 #show_always = false
 show_always = true
 disabled = false
@@ -728,8 +732,8 @@ detect_folders = []
 [custom]
 
 [custom.hostname]
-command = "hostnamectl --static status"
+command = "hostnamectl --pretty status"
 when = "true"
-format = "[\\\\\\\\ $output ]($style)"
-style = "bold fg:207"
+format = "[](bg:238)[ $output ]($style)"
+style = "bold bg:238 fg:250"
 
