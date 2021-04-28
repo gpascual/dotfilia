@@ -78,9 +78,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
   --
   -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
-  -- Lock session
-  , ((modm .|. mod1Mask, xK_l     ), spawn "slock")
-
   -- Quit xmonad
   , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
