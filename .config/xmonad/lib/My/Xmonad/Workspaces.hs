@@ -1,4 +1,4 @@
-module My.Xmonad.Workspaces (myWorkspaces)
+module My.Xmonad.Workspaces (myWorkspaces, getWs)
   where
 
 xmobarEscape = concatMap doubleLts
@@ -16,4 +16,7 @@ myWorkspaces = clickable . (map xmobarEscape) $ names where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ "><fn=1>"++ icon ++ "</fn> " ++ ws ++"</action>" |
                       (i,ws, icon) <- zip3 [1..5] l icons,                                        
                       let n = i]
+
+getWs name = myWorkspaces $ (elemIndex name nameList) where
+               namelist = names
 

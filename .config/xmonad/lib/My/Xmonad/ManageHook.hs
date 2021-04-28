@@ -17,15 +17,15 @@ where
 import XMonad (className, composeAll, doFloat, doShift, stringProperty, (=?), (-->), (<&&>))
 import XMonad.Hooks.ManageDocks (manageDocks)
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
-import My.Xmonad.Workspaces (myWorkspaces)
+import My.Xmonad.Workspaces (getWs)
 
 windowRules = 
   [ (className =? "firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "Dialog") --> doFloat       -- float Firefox Dialog
   , className =? "jetbrains-toolbox"    --> doFloat                     -- float Jetbrains Toolbox
-  , className =? "jetbrains-datagrip"   --> doShift (myWorkspaces !! 3) -- send DataGrip to "data" workspace at position 3 (positions start at 0)
-  , className =? "jetbrains-phpstorm"   --> doShift (myWorkspaces !! 0) -- send PhpStorm to "code" workspace
-  , className =? "Slack"                --> doShift (myWorkspaces !! 1) -- send Slack to "chat" workspace
-  , className =? "Lutris"               --> doShift (myWorkspaces !! 4) -- send Lutris to "misc" workspace
+  , className =? "jetbrains-datagrip"   --> doShift (getWs "data")
+  , className =? "jetbrains-phpstorm"   --> doShift (getWs "code")
+  , className =? "Slack"                --> doShift (getWs "chat")
+  , className =? "Lutris"               --> doShift (getWs "misc")
   ]
 
 myManageHook = composeAll $

@@ -12,7 +12,7 @@ import My.Xmonad.Keybindings (myKeys, myMouseBindings)
 import My.Xmonad.Layouts (myLayouts, chatLayouts, codeLayouts, dataLayouts)
 import My.Xmonad.ManageHook (myManageHook)
 import My.Xmonad.StartupHook (myStartupHook)
-import My.Xmonad.Workspaces (myWorkspaces)
+import My.Xmonad.Workspaces (myWorkspaces, getWs)
 import My.Xmobar (myXmobars)
 
 main = do
@@ -39,9 +39,9 @@ main = do
          
     -- hooks, layouts
     , layoutHook         = -- smartBorders $ fullscreenFull $ avoidStruts $
-                           onWorkspace (myWorkspaces !! 0) (smartBorders $ avoidStruts codeLayouts) $
-			   onWorkspace (myWorkspaces !! 1) (smartBorders $ avoidStruts chatLayouts) $
-			   onWorkspace (myWorkspaces !! 3) (smartBorders $ avoidStruts dataLayouts) $
+                           onWorkspace (getWs "code") (smartBorders $ avoidStruts codeLayouts) $
+			   onWorkspace (getWs "chat") (smartBorders $ avoidStruts chatLayouts) $
+			   onWorkspace (getWs "data") (smartBorders $ avoidStruts dataLayouts) $
 			   (smartBorders $ avoidStruts myLayouts)
     , manageHook         = myManageHook
     , handleEventHook    = ewmhDesktopsEventHook <+> fullscreenEventHook <+> docksEventHook
