@@ -1,2 +1,6 @@
-set fish_greeting   # Removes the Fish greeting message
+#
+# config.fish
+#
+
+starship init fish | source
 
