@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+function greeter() {
+  fortune -s linux startrek \
+    | figlet -w $(tput cols) -f $(find /usr/share/figlet/fonts/ -name "*.flf" | shuf -n 1) \
+    | lolcat
+}
+
+greeter
+
