@@ -46,6 +46,6 @@ main = do
     , manageHook         = myManageHook
     , handleEventHook    = ewmhDesktopsEventHook <+> fullscreenEventHook <+> docksEventHook
     , startupHook        = myStartupHook
-    , logHook = dynamicLogWithPP $ myXmobars stdInXmobars noStdInXmobars
+    , logHook            = dynamicLogWithPP $ myXmobars stdInXmobars noStdInXmobars
     }
 
