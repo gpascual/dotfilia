@@ -72,7 +72,7 @@ disabled = false
 
 [aws.region_aliases]
 
-[battery]
+[[battery.display]]
 threshold = 10
 style = 'red bold'
 
