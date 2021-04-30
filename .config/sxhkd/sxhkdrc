@@ -14,7 +14,3 @@ ctrl + @Print
 ctrl + shift + @Print
     gnome-screenshot --area --clipboard -f $(xdg-user-dir PICTURES)/screenshot-$(date -Iseconds).jpg
 
-# lock screen
-meta + alt + l
-    slock physlock -dl; physlock -dL
-
