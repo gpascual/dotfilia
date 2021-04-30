@@ -37,4 +37,5 @@ run_once pa-applet   # audio controls
 
 # Startup apps
 run_once jetbrains-toolbox --minimize %u
+run_once conky -c $HOME/.config/conky/xmonad.conkyrc
 

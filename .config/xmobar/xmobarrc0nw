@@ -36,26 +36,27 @@ Config { font = "xft:Noto Sans Bold:pixelsize=18:antialias=true:hinting=true"
                     -- Time and date
                     , Run Date "<fn=1>\xf133</fn> %a %b %_d %Y %H:%M" "date" 50
                     -- Cpu usage in percent
-                    , Run Cpu [ "-t", "<fn=1>\xf6c4</fn> <total>%"
-                              , "-L", "10"
-                              , "-l", "#4caf50"
-                              , "-H", "50"
-                              , "-h", "#f9a825"
-                              ] 20
+                    --, Run Cpu [ "-t", "<fn=1>\xf6c4</fn> <total>%"
+                    --          , "-L", "10"
+                    --          , "-l", "#4caf50"
+                    --          , "-H", "50"
+                    --          , "-h", "#f9a825"
+                    --          ] 20
                     -- Ram used number and percent
-                    , Run Memory [ "-t", "<fn=1>\xf85a</fn> <used>MB"
-                                 , "-L", "5333"
-                                 , "-l", "#4caf50"
-                                 , "-H", "10667"
-                                 , "-h", "#f9a825"
-                                 ] 20
+                    --, Run Memory [ "-t", "<fn=1>\xf85a</fn> <used>MB"
+                    --             , "-L", "5333"
+                    --             , "-l", "#4caf50"
+                    --             , "-H", "10667"
+                    --             , "-h", "#f9a825"
+                    --             ] 20
                     -- Network up and down
-                    , Run Network "enp30s0f3u4" ["-t", "<fn=1>\xf0aa</fn> <rx>kb <fn=1>\xf0ab</fn> <tx>kb"] 20
+                    -- , Run Network "enp30s0f3u4" ["-t", "<fn=1>\xf0aa</fn> <rx>kb <fn=1>\xf0ab</fn> <tx>kb"] 20
                     -- , Run Network "enp30s0f3u4" ["-L", "0", "-H", "32"
 		    --                              "--normal", "green", "--high", "red"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> %cpu% <fc=#6d6d6d>|</fc> %memory% <fc=#6d6d6d>|</fc> %enp30s0f3u4% <fc=#6d6d6d>|</fc>"
+       --, template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> %cpu% <fc=#6d6d6d>|</fc> %memory% <fc=#6d6d6d>|</fc> %enp30s0f3u4% <fc=#6d6d6d>|</fc>"
+       , template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc>"
        }
 
