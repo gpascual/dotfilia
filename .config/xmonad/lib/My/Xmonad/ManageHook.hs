@@ -26,7 +26,6 @@ windowRules =
   , className =? "jetbrains-phpstorm"   --> doShift (getWs "code")
   , className =? "Slack"                --> doShift (getWs "chat")
   , className =? "Lutris"               --> doShift (getWs "misc")
-  , className =? "kitty"                --> doShift (getWs "shell")
   ]
 
 myManageHook = composeAll $

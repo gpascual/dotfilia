@@ -3,7 +3,8 @@ module My.Xmonad.StartupHook (myStartupHook)
 import Control.Monad (join, when)
 import Data.Maybe (maybeToList)
 import XMonad (Atom, X, asks, changeProperty32, getAtom, getWindowProperty32, liftIO, propModeAppend, spawn, theRoot, withDisplay)
-import XMonad.Util.SpawnOnce (spawnOnce)
+import XMonad.Util.SpawnOnce (spawnOnce, spawnOnOnce)
+import My.Xmonad.Workspaces (getWs)
 
 -- the sxiv app, firefox (and maybe others) believes that fullscreen is not supported,
 -- so this fixes that.
@@ -27,5 +28,6 @@ addEWMHFullscreen   = do
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawn "~/.config/xmonad/autorun.sh"
+  spawnOnOnce (getWs "shell") "kitty"
   addEWMHFullscreen 
  
