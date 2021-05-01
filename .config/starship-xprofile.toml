@@ -734,6 +734,6 @@ detect_folders = []
 [custom.hostname]
 command = "hostnamectl --pretty status"
 when = "true"
-format = "[](bg:238)[ $output ]($style)"
+format = "[](fg:254 bg:238)[ $output ]($style)"
 style = "bold bg:238 fg:250"
 
