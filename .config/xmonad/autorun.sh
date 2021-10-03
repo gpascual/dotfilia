@@ -31,6 +31,9 @@ run_once sxhkd
 # Clipboard daemon
 run_once clipmenud
 
+# Set a random background periodically
+replace nitrogen-folder $XDG_DATA_HOME/backgrounds/black_and_white_architecture/ 15m
+
 # Third party Applets and Widgets
 run_once nm-applet   # network
 run_once pa-applet   # audio controls

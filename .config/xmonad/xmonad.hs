@@ -9,7 +9,7 @@ import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Util.Run (spawnPipe)
 import My.MaterialTheme.Colors (primaryLightColor, secondaryColor)
 import My.Xmonad.Keybindings (myKeys, myMouseBindings)
-import My.Xmonad.Layouts (myLayouts, chatLayouts, codeLayouts, dataLayouts)
+import My.Xmonad.Layouts (myLayouts, shellLayouts, chatLayouts, codeLayouts, dataLayouts)
 import My.Xmonad.ManageHook (myManageHook)
 import My.Xmonad.StartupHook (myStartupHook)
 import My.Xmonad.Workspaces (myWorkspaces, getWs)
@@ -39,6 +39,7 @@ main = do
          
     -- hooks, layouts
     , layoutHook         = -- smartBorders $ fullscreenFull $ avoidStruts $
+                           onWorkspace (getWs "shell") (smartBorders $ avoidStruts shellLayouts) $
                            onWorkspace (getWs "code") (smartBorders $ avoidStruts codeLayouts) $
 			   onWorkspace (getWs "chat") (smartBorders $ avoidStruts chatLayouts) $
 			   onWorkspace (getWs "data") (smartBorders $ avoidStruts dataLayouts) $

@@ -26,11 +26,11 @@ conky.config = {
 
 	-- Placement (For SINGLE monitor users!)
 	alignment = 'top_right',		            		-- top_left,top_middle,top_right,bottom_left,bottom_middle,bottom_right,
-	gap_x = 50,							-- pixels between right or left border
-	gap_y = 70,							-- pixels between bottom or left border
+	gap_x = 10,							-- pixels between right or left border
+	gap_y = 40,							-- pixels between bottom or left border
 
 	-- Size
-	minimum_height = 200,						-- minimum height of window
+	minimum_height = 1390,						-- minimum height of window
 	minimum_width = 320,						-- minimum height of window
 	maximum_width = 320,						-- maximum height of window
 
@@ -41,7 +41,7 @@ conky.config = {
 	default_bar_width = 260,					-- default is 0 - full width
 	default_bar_height = 10,					-- default is 6
 	default_gauge_height = 25,					-- default is 25
-	default_gauge_width =40,					-- default is 40
+	default_gauge_width = 40,					-- default is 40
 	default_graph_height = 40,					-- default is 25
 	default_graph_width = 153,					-- default is 0 - full width
 	default_shade_color = '#000000',				-- default shading colour

@@ -1,8 +1,9 @@
-module My.Xmonad.Layouts (myLayouts, chatLayouts, codeLayouts, dataLayouts)
+module My.Xmonad.Layouts (myLayouts, shellLayouts, chatLayouts, codeLayouts, dataLayouts)
   where
 import Data.Maybe
 import XMonad
 import XMonad.Config.Desktop (desktopConfig)
+import XMonad.Layout.Accordion
 import XMonad.Layout (Mirror(..), Full(..))
 import XMonad.Layout.CenteredMaster (centerMaster)
 import XMonad.Layout.Grid (Grid(..))
@@ -37,9 +38,15 @@ wide = renamed [Replace "wide"] $ addSpace (Mirror $ Tall nmaster delta mirrorRa
 
 full = renamed [Replace "full"] Full
 
+tallAccordion = renamed [Replace "y-accordion"] $ addSpace Accordion
+
+wideAccordion = renamed [Replace "x-accordion"] $ addSpace $ Mirror Accordion
+
+shellLayouts = tallAccordion ||| full
+
 chatLayouts = full ||| center
 
-codeLayouts = tall ||| full
+codeLayouts = wideAccordion ||| full
 
 dataLayouts = full
 
