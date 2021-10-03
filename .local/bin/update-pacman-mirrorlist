@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+cp -f /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+reflector --verbose --latest 20 --protocol https --sort rate \
+  --country Spain \
+  --country France \
+  --country Portugal \
+  --country Germany \
+  --country Netherlands \
+  --save /etc/pacman.d/mirrorlist
+
