@@ -14,3 +14,7 @@ ctrl + @Print
 ctrl + shift + @Print
     gnome-screenshot --area --clipboard -f $(xdg-user-dir PICTURES)/screenshot-$(date -Iseconds).jpg
 
+# pick a color
+ctrl + alt + @Print
+    gpick -p -s
+
