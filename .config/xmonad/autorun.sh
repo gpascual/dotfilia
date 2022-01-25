@@ -35,8 +35,8 @@ run_once clipmenud
 replace nitrogen-folder $XDG_DATA_HOME/backgrounds/black_and_white_architecture/ 15m
 
 # Third party Applets and Widgets
-run_once nm-applet   # network
-run_once pa-applet   # audio controls
+run_once nm-applet                          # network
+run_once pasystray -m 100 -i 1 --notify=all # audio controls
 
 # Startup apps
 run_once jetbrains-toolbox --minimize %u
