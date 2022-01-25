@@ -1,7 +1,0 @@
-
-xmonad.hs:44:1: warning: [-Wtabs]
-    Tab character found here, and in 8 further locations.
-    Please use spaces instead.
-   |
-44 |                            onWorkspace (getWs "chat") (smartBorders $ avoidStruts chatLayouts) $
-   | ^^^^^^^^
