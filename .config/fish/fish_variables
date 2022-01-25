@@ -1,5 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR EDITOR:nvim
-SETUVAR VISUAL:nvim
-SETUVAR fish_key_bindings:fish_default_key_bindings
