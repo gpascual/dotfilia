@@ -13,8 +13,8 @@
 -- warning="#f9a825"
 
 Config { font = "xft:Noto Sans Bold:pixelsize=18:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Symbols Nerd Font:pixelsize=20:antialias=true:hinting=true"
-                             , "xft:Symbols Nerd Font:pixelsize=28:antialias=true:hinting=true" ]
+       , additionalFonts = [ "xft:NotoSansMono Nerd Font:pixelsize=20:antialias=true:hinting=true"
+                             , "xft:NotoSansMono Nerd Font:pixelsize=28:antialias=true:hinting=true" ]
        , borderColor = "#1b1b1b"
        , border = NoBorder
        , bgColor = "#1b1b1b"
