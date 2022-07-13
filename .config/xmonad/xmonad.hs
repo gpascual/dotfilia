@@ -1,7 +1,7 @@
 import XMonad
 import XMonad.Config.Desktop (desktopConfig)
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP)
-import XMonad.Hooks.EwmhDesktops (ewmh, ewmhDesktopsEventHook, fullscreenEventHook)
+import XMonad.Hooks.EwmhDesktops (ewmh, ewmhFullscreen)
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, docks)
 import XMonad.Layout.Fullscreen (fullscreenFull, fullscreenSupport)
 import XMonad.Layout.NoBorders (smartBorders)
@@ -22,7 +22,7 @@ main = do
   let
     stdInXmobars = [xmproc0nw]
     noStdInXmobars = [xmproc0ne]
-  xmonad $ ewmh $ fullscreenSupport $ docks $ desktopConfig
+  xmonad $ ewmhFullscreen . ewmh $ fullscreenSupport $ docks $ desktopConfig
     -- simple stuff
     { terminal           = "kitty"
     , focusFollowsMouse  = False
@@ -41,11 +41,10 @@ main = do
     , layoutHook         = -- smartBorders $ fullscreenFull $ avoidStruts $
                            onWorkspace (getWs "shell") (smartBorders $ avoidStruts shellLayouts) $
                            onWorkspace (getWs "code") (smartBorders $ avoidStruts codeLayouts) $
-			   onWorkspace (getWs "chat") (smartBorders $ avoidStruts chatLayouts) $
-			   onWorkspace (getWs "data") (smartBorders $ avoidStruts dataLayouts) $
-			   (smartBorders $ avoidStruts myLayouts)
+                           onWorkspace (getWs "chat") (smartBorders $ avoidStruts chatLayouts) $
+                           onWorkspace (getWs "data") (smartBorders $ avoidStruts dataLayouts) $
+                           (smartBorders $ avoidStruts myLayouts)
     , manageHook         = myManageHook
-    , handleEventHook    = ewmhDesktopsEventHook <+> fullscreenEventHook <+> docksEventHook
     , startupHook        = myStartupHook
     , logHook            = dynamicLogWithPP $ myXmobars stdInXmobars noStdInXmobars
     }
