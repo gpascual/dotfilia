@@ -15,10 +15,10 @@ myKeys = \conf -> mkKeymap conf $
   [ ("M-S-<Return>", spawn $ XMonad.terminal conf)
 
   -- launch dmenu
-  , ("M-p p", spawn "dmenu-xdg_menu")
+  , ("M-p", spawn "dmenu-xdg_menu")
 
   -- launch dmenu to choose a XDG appliaction
-  , ("M-p r", spawn "dmenu_run -i -c -l 20 -h 16  -fn \"Noto Sans Medium-12\"")
+  , ("M-S-p r", spawn "dmenu_run -i -c -l 20 -h 16  -fn \"Noto Sans Medium-12\"")
 
   -- close focused window
   , ("M-S-c", kill)
