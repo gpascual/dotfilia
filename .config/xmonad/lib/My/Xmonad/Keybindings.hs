@@ -2,96 +2,98 @@ module My.Xmonad.Keybindings (myKeys, myMouseBindings)
   where
 import XMonad
 import System.Exit (exitWith, ExitCode(ExitSuccess))
+import XMonad.Hooks.ManageDocks (ToggleStruts(ToggleStruts))
 import XMonad.Layout.ResizableTile (MirrorResize(MirrorShrink, MirrorExpand))
+import XMonad.Util.EZConfig (mkKeymap)
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
+myKeys = \conf -> mkKeymap conf $
 
   -- launch a terminal
-  ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+  [ ("M-S-<Return>", spawn $ XMonad.terminal conf)
 
   -- launch dmenu
-  , ((modm,               xK_r     ), spawn "dmenu_run -i -c -l 20 -h 16  -fn \"Noto Sans Medium-12\"")
+  , ("M-p p", spawn "dmenu-xdg_menu")
 
   -- launch dmenu to choose a XDG appliaction
-  , ((modm,               xK_p     ), spawn "dmenu-xdg_menu")
+  , ("M-p r", spawn "dmenu_run -i -c -l 20 -h 16  -fn \"Noto Sans Medium-12\"")
 
   -- close focused window
-  , ((modm .|. shiftMask, xK_c     ), kill)
+  , ("M-S-c", kill)
 
   -- Rotate through the available layout algorithms
-  , ((modm,               xK_space ), sendMessage NextLayout)
+  , ("M-<Space>", sendMessage NextLayout)
 
-  --  Reset the layouts on the current workspace to default
-  , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+  -- Reset the layouts on the current workspace to default
+  , ("M-S-<Space>", setLayout $ XMonad.layoutHook conf)
 
   -- Resize viewed windows to the correct size
-  , ((modm,               xK_n     ), refresh)
+  , ("M-n", refresh)
 
   -- Move focus to the next window
-  , ((modm,               xK_Tab   ), windows W.focusDown)
+  , ("M-<Tab>", windows W.focusDown)
 
   -- Move focus to the next window
-  , ((modm,               xK_j     ), windows W.focusDown)
+  , ("M-j", windows W.focusDown)
 
   -- Move focus to the previous window
-  , ((modm,               xK_k     ), windows W.focusUp  )
+  , ("M-k", windows W.focusUp  )
 
   -- Move focus to the master window
-  , ((modm,               xK_m     ), windows W.focusMaster  )
+  , ("M-m", windows W.focusMaster  )
 
   -- Swap the focused window and the master window
-  , ((modm,               xK_Return), windows W.swapMaster)
+  , ("M-<Return>", windows W.swapMaster)
 
   -- Swap the focused window with the next window
-  , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
+  , ("M-S-j", windows W.swapDown  )
 
   -- Swap the focused window with the previous window
-  , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
+  , ("M-S-k", windows W.swapUp    )
 
   -- Shrink the master area
-  , ((modm,               xK_h     ), sendMessage Shrink)
+  , ("M-h", sendMessage Shrink)
 
   -- Expand the master area
-  , ((modm,               xK_l     ), sendMessage Expand)
+  , ("M-l", sendMessage Expand)
 
   -- Shrink resizable slave
-  , ((modm .|. shiftMask, xK_h     ), sendMessage MirrorShrink)
+  , ("M-S-h", sendMessage MirrorShrink)
 
   -- Expand resizable slave
-  , ((modm .|. shiftMask, xK_l     ), sendMessage MirrorExpand)
+  , ("M-S-l", sendMessage MirrorExpand)
 
   -- Push window back into tiling
-  , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+  , ("M-t", withFocused $ windows . W.sink)
 
   -- Increment the number of windows in the master area
-  , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
+  , ("M-,", sendMessage (IncMasterN 1))
 
   -- Deincrement the number of windows in the master area
-  , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+  , ("M-.", sendMessage (IncMasterN (-1)))
 
   -- Toggle the status bar gap
   -- Use this binding with avoidStruts from Hooks.ManageDocks.
   -- See also the statusBar function from Hooks.DynamicLog.
   --
-  -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
+  , ("M-b", sendMessage ToggleStruts)
 
   -- Lock session
-  , ((modm .|. mod1Mask, xK_l     ), spawn "slock physlock -dl; physlock -dL")
+  , ("M-M1-l", spawn "slock physlock -dl; physlock -dL")
 
   -- Quit xmonad
-  , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+  , ("M-S-q", io (exitWith ExitSuccess))
 
   -- Recompile xmonad
-  , ((modm .|. controlMask, xK_q     ), spawn "xmonad --recompile")
+  , ("M-C-q", spawn "xmonad --recompile")
 
   -- Restart xmonad
-  , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+  , ("M-q", spawn "xmonad --recompile; xmonad --restart")
 
   -- Run xmessage with a summary of the default keybindings (useful for beginners)
-  , ((modm              , xK_s ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+  , ("M-s", spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
   ]
 
   ++
@@ -100,8 +102,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
   -- mod-[1..9], Switch to workspace N
   -- mod-shift-[1..9], Move client to workspace N
   --
-  [ ((m .|. modm, k), windows $ f i) | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-  , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+  [ ("M-" ++ m ++ [k], windows $ f i) | (i, k) <- zip (XMonad.workspaces conf) ['1' .. '9']
+  , (f, m) <- [(W.greedyView, ""), (W.shift, "S-")]]
 
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
@@ -126,8 +128,8 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "",
     "-- launching and killing programs",
     "mod-Shift-Enter  Launch xterminal",
-    "mod-r            Launch dmenu",
-    "mod-p            Launch XDG application",
+    "mod-p r          Launch dmenu",
+    "mod-p p          Launch XDG application",
     "mod-Shift-c      Close/kill the focused window",
     "mod-Space        Rotate through the available layout algorithms",
     "mod-Shift-Space  Reset the layouts on the current workSpace to default",
