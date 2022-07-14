@@ -1,0 +1,7 @@
+# autorun programs necessary for laptops
+
+. $XMONAD_CONFIG_HOME/autorun-functions
+
+# Power management
+systemctl is-active --quiet service && run_once xfce4-power-manager
+

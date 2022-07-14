@@ -1,0 +1,13 @@
+
+function run_once {
+  if ! pidof $1 ;
+  then
+    $@&
+  fi
+}
+
+function replace {
+  killall -e $1
+  $@&
+}
+
