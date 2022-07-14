@@ -105,6 +105,16 @@ myKeys = \conf -> mkKeymap conf $
   [ ("M-" ++ m ++ [k], windows $ f i) | (i, k) <- zip (XMonad.workspaces conf) ['1' .. '9']
   , (f, m) <- [(W.greedyView, ""), (W.shift, "S-")]]
 
+  ++
+
+  --
+  -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+  -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+  --
+  [ ("M-" ++ m ++ [key], screenWorkspace sc >>= flip whenJust (windows . f))
+      | (key, sc) <- zip ['w', 'e', 'r'] [0..]
+      , (f, m) <- [(W.view, ""), (W.shift, "S-")]]
+
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
