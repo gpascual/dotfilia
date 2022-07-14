@@ -11,10 +11,10 @@ PS1='[\u@\h \W]\$ '
 
 # source bash configs and stuff
 if [ -d $XDG_CONFIG_HOME/bash.d ] ; then
- for f in $XDG_CONFIG_HOME/bash.d/?[!.]* ; do
-  . "$f"
- done
- unset f
+  for f in $XDG_CONFIG_HOME/bash.d/?[!.]* ; do
+    . "$f"
+  done
+  unset f
 fi
 
 export NVM_DIR="$HOME/.config/nvm"

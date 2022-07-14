@@ -20,8 +20,8 @@ export NPM_CONFIG_PREFIX="$HOME/.local"
 export XDG_MENU_ROOT_MENU=$HOME/.config/xdg_menu/applications.menu
 
 if [ -d $XDG_CONFIG_HOME/profile.d ] ; then
- for f in $XDG_CONFIG_HOME/profile.d/?[!.]* ; do
-  . "$f"
- done
- unset f
+  for f in $XDG_CONFIG_HOME/profile.d/?[!.]* ; do
+    . "$f"
+  done
+  unset f
 fi
