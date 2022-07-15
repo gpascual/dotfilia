@@ -21,6 +21,7 @@ import My.Xmonad.Workspaces (getWs)
 
 windowRules = 
   [ (className =? "firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "Dialog") --> doFloat       -- float Firefox Dialog
+  , className =? "Peek"                 --> doFloat                     -- float Jetbrains Toolbox
   , className =? "jetbrains-toolbox"    --> doFloat                     -- float Jetbrains Toolbox
   , className =? "jetbrains-datagrip"   --> doShift (getWs "data")
   , className =? "jetbrains-phpstorm"   --> doShift (getWs "code")
