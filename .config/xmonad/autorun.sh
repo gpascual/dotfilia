@@ -27,7 +27,7 @@ replace nitrogen-folder $XDG_DATA_HOME/backgrounds/black_and_white_architecture/
 # Third party Applets and Widgets
 run_once nm-applet                          # network
 run_once pa-applet                          # audio controls
-run_once pasystray -m 100 -i 1 --notify=all # audio controls
+run_once pasystray -m 100 -i 1 --notify=new # audio controls
 systemctl is-active --quiet bluetooth \
   && run_once blueman-applet                # bluetooth
 
