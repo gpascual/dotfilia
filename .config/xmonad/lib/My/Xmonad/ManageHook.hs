@@ -14,18 +14,22 @@
 module My.Xmonad.ManageHook (myManageHook)
 where
 
-import XMonad (className, composeAll, doFloat, doShift, stringProperty, (=?), (-->), (<&&>))
+import XMonad (className, appName, composeAll, doFloat, doShift, stringProperty, (=?), (-->), (<&&>))
 import XMonad.Hooks.ManageDocks (manageDocks)
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
 import My.Xmonad.Workspaces (getWs)
 
 windowRules = 
   [ (className =? "firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "Dialog") --> doFloat       -- float Firefox Dialog
+  , (className =? "firefox" <&&> stringProperty "WM_WINDOW_ROLE" =? "PictureInPicture") --> doFloat       -- float Firefox picture-in-picture
+  , (className =? "librewolf" <&&> stringProperty "WM_WINDOW_ROLE" =? "Dialog") --> doFloat     -- float Librewolf Dialog
+  , (className =? "librewolf" <&&> stringProperty "WM_WINDOW_ROLE" =? "PictureInPicture") --> doFloat     -- float Librewolf picture-in-picture
   , className =? "Peek"                 --> doFloat                     -- float Jetbrains Toolbox
   , className =? "jetbrains-toolbox"    --> doFloat                     -- float Jetbrains Toolbox
   , className =? "jetbrains-datagrip"   --> doShift (getWs "data")
   , className =? "jetbrains-phpstorm"   --> doShift (getWs "code")
   , className =? "Slack"                --> doShift (getWs "chat")
+  , appName =? "Google Meet"            --> doShift (getWs "chat")
   , className =? "Lutris"               --> doShift (getWs "misc")
   ]
 
