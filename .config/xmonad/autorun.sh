@@ -10,7 +10,7 @@
 run_once /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Compositing
-run_once picom -b --experimental-backends --log-file /tmp/picom_${USER}
+run_once picom -b --log-file /tmp/picom_${USER}
 
 # System tray
 replace stalonetray --config ~/.config/stalonetrayrc
