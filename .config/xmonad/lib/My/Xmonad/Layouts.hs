@@ -7,9 +7,12 @@ import XMonad.Layout.Accordion
 import XMonad.Layout (Mirror(..), Full(..))
 import XMonad.Layout.CenteredMaster (centerMaster)
 import XMonad.Layout.Grid (Grid(..))
+import XMonad.Layout.LayoutModifier
 import XMonad.Layout.Renamed
 import XMonad.Layout.ResizableTile (ResizableTall(..))
-import XMonad.Layout.Spacing (spacingRaw, Border(..))
+import XMonad.Layout.SimplestFloat
+import XMonad.Layout.Spacing (spacingRaw, Border(..), Spacing(..))
+import XMonad.Layout.WindowArranger (WindowArranger(..))
 
 addSpace = spacingRaw True (Border 0 0 0 0) False (Border 8 4 4 4) True
 
@@ -42,6 +45,9 @@ tallAccordion = renamed [Replace "y-accordion"] $ addSpace Accordion
 
 wideAccordion = renamed [Replace "x-accordion"] $ addSpace $ Mirror Accordion
 
+floats :: ModifiedLayout Rename (ModifiedLayout Spacing (ModifiedLayout WindowArranger SimplestFloat)) Window
+floats = renamed [Replace "floats"] $ addSpace simplestFloat
+
 shellLayouts = tallAccordion ||| full
 
 chatLayouts = full ||| center
@@ -52,6 +58,7 @@ dataLayouts = full
 
 myLayouts =
   (   tall
+  ||| floats
   ||| center
   ||| wide
   ||| full
