@@ -35,11 +35,11 @@ Config { font = "xft:Noto Sans Bold:pixelsize=18:antialias=true:hinting=true"
                     Run UnsafeStdinReader
                     -- Run Com "cat" ["~/.config/xmobar/xmobarrc0ne.tpl"] "" 36000
                     , Run Com "echo" ["\
-                                   \ <action=`slock physlock -dl; physlock -dL`><fn=1>\xf840</fn></action> \                     -- lock session
-                                   \ <action=`xdotool key super+Shift+q`><fn=1>\xf842</fn></action> \ -- log out (stop xmonad)
-                                   \ <action=`systemctl reboot`><fn=1>\xfc07</fn></action> \
-                                   \ <action=`systemctl suspend`><fn=1>\xf9b1</fn></action> \
-                                   \ <action=`systemctl poweroff`><fn=1>\xf924</fn></action>"
+                                   \ <action=`slock physlock -dl; physlock -dL`><fn=1>\xf840 </fn></action> \ -- lock session
+                                   \ <action=`xdotool key super+Shift+q`><fn=1>\xf842 </fn></action> \        -- log out (stop xmonad)
+                                   \ <action=`systemctl reboot`><fn=1>\xfc07 </fn></action> \
+                                   \ <action=`systemctl suspend`><fn=1>\xf9b1 </fn></action> \
+                                   \ <action=`systemctl poweroff`><fn=1>\xf924 </fn></action>"
                                    ] "" 36000
                     -- Run Com "less" ["-FX","/home/gonzalo/.config/xmobar/xmobarrc0ne.tpl"] "cat" 36000
                     -- , Run Com "uname" ["-r"] "" 36000
