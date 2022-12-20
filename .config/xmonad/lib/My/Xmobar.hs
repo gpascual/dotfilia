@@ -16,7 +16,7 @@ printLnToXmprocs xmprocs x = do
 
 windowCount = gets $ Just . formatWindowCount . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
   where
-    formatWindowCount count = "<fn=1>\xfab2</fn>: " ++ count
+    formatWindowCount count = "<fn=1>\xfab2 </fn>: " ++ count
 
 myXmobars xmprocs xmprocsWithoutStdIn = xmobarPP
   { ppOutput = \x -> (printLnToXmprocs xmprocs x) >> (printLnToXmprocs xmprocsWithoutStdIn "\n") 
@@ -25,11 +25,11 @@ myXmobars xmprocs xmprocsWithoutStdIn = xmobarPP
     -- , ppHidden = xmobarColor secondaryLightColor ""                                -- Hidden workspaces in xmobar
     , ppHiddenNoWindows = xmobarColor primaryLightColor ""                            -- Hidden workspaces (no windows)
     , ppWsSep = " / "                                                                 -- Workspace separators
-    , ppTitle = shorten 80 . wrap "<fn=1>\xfb13</fn>: " ""                            -- Title of active window in xmobar
-    , ppLayout = wrap "<fn=1>\xfc56</fn>: " ""                                        -- Title of active window in xmobar
+    , ppTitle = shorten 80 . wrap "<fn=1>\xfb13 </fn>: " ""                           -- Title of active window in xmobar
+    , ppLayout = wrap "<fn=1>\xfc56 </fn>: " ""                                       -- Title of active window in xmobar
     , ppSep =  "<fc="++primaryLightColor++"> | </fc>"                                 -- Separators in xmobar
-    , ppUrgent = xmobarColor alertColor "" . wrap "<fn=1>\xf525</fn>" ""              -- Urgent workspace
+    , ppUrgent = xmobarColor alertColor "" . wrap "<fn=1>\xf525 </fn>" ""             -- Urgent workspace
     , ppExtras  = [ windowCount ]                                                     -- # of windows current workspace
-    , ppOrder  = \(ws:l:t:ex) -> ["<fc="++secondaryColor++"><fn=2>\xe61f</fn></fc>"]++[ws,l]++ex++[t]
+    , ppOrder  = \(ws:l:t:ex) -> ["<fc="++secondaryColor++"><fn=2>\xe61f </fn></fc>"]++[ws,l]++ex++[t]
   }
 
