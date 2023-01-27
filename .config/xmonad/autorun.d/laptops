@@ -1,7 +1,0 @@
-# autorun programs necessary for laptops
-
-. $XMONAD_CONFIG_HOME/autorun-functions
-
-# Power management
-systemctl is-active --quiet upower && run_once xfce4-power-manager
-
