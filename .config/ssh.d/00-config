@@ -1,0 +1,6 @@
+#
+# General ssh configuration
+#
+
+AddKeysToAgent yes
+
