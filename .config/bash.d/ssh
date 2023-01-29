@@ -1,0 +1,4 @@
+eval $(ssh-agent -s) 2&> /dev/null
+
+trap 'kill $SSH_AGENT_PID' EXIT
+
