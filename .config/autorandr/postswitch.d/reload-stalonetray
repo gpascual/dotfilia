@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+icons=8
+primaryHorizontalOffset=$(xrandr -q | rg ' connected primary' | cut -d' ' -f4 | sed 's/[x]/\+/g' | cut -d'+' -f 1,3 | bc -l)
+stalonetrayOffset=$(expr "$primaryHorizontalOffset" - "$icons" \* 24 - 208)
+stalonetrayPID=$(pidof stalonetray)
+
+if [ $? -eq 0 ]; then
+  kill $stalonetrayPID
+fi
+
+nohup stalonetray --geometry "$icons"x1+"$stalonetrayOffset"+2  --config ~/.config/stalonetrayrc &> /dev/null &
+
