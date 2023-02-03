@@ -18,11 +18,9 @@ import My.Xmobar (myXmobars)
 
 main = do
   -- start status bars and save their process handlers
-  xmproc0nw <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc0nw"
-  xmproc0ne <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc0ne"
+  xmproc0 <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc0"
   let
-    stdInXmobars = [xmproc0nw]
-    noStdInXmobars = [xmproc0ne]
+    stdInXmobars = [xmproc0]
   xmonad $ ewmhFullscreen . ewmh $ fullscreenSupport $ docks $ desktopConfig
     -- simple stuff
     { terminal           = "kitty"
@@ -47,6 +45,6 @@ main = do
                            (smartBorders $ avoidStruts myLayouts)
     , manageHook         = myManageHook
     , startupHook        = myStartupHook
-    , logHook            = dynamicLogWithPP $ myXmobars stdInXmobars noStdInXmobars
+    , logHook            = dynamicLogWithPP $ myXmobars stdInXmobars
     }
 

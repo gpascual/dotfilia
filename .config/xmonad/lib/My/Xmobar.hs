@@ -18,8 +18,8 @@ windowCount = gets $ Just . formatWindowCount . show . length . W.integrate' . W
   where
     formatWindowCount count = "<fn=1>\xfab2 </fn>: " ++ count
 
-myXmobars xmprocs xmprocsWithoutStdIn = xmobarPP
-  { ppOutput = \x -> (printLnToXmprocs xmprocs x) >> (printLnToXmprocs xmprocsWithoutStdIn "\n") 
+myXmobars xmprocs = xmobarPP
+  { ppOutput = \x -> printLnToXmprocs xmprocs x
     , ppCurrent = xmobarColor secondaryLightColor "" . wrap "[" "]"                   -- Current workspace in xmobar
     , ppVisible = xmobarColor secondaryLightColor ""                                  -- Visible but not current workspace
     -- , ppHidden = xmobarColor secondaryLightColor ""                                -- Hidden workspaces in xmobar
