@@ -13,7 +13,7 @@ run_once /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run_once picom -b --log-file /tmp/picom_${USER}
 
 # System tray
-replace stalonetray --config ~/.config/stalonetrayrc
+$(sleep 1; replace stalonetray --config ~/.config/stalonetrayrc) & # the 1s delay practically ensures stalonetray is run after xmobar so it stays over it
 
 # Hotkeys daemon
 run_once sxhkd
