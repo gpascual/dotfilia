@@ -65,6 +65,6 @@ Config { font = "xft:Noto Sans Mono Bold:pixelsize=18:antialias=true:hinting=tru
        , sepChar = "%"
        , alignSep = "}{"
        --, template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> %cpu% <fc=#6d6d6d>|</fc> %memory% <fc=#6d6d6d>|</fc> %enp30s0f3u4% <fc=#6d6d6d>|</fc>"
-       , template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <icon=/home/gonzalo/.face-icon.xpm/> <fc=#6d6d6d>|</fc> <hspace=288/> <fc=#6d6d6d>|</fc> %echo%"
+       , template = " %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> <hspace=288/> <fc=#6d6d6d>|</fc> %echo% <fc=#6d6d6d>|</fc> <icon=/home/gonzalo/.face-icon.xpm/> "
        }
 
