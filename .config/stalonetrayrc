@@ -70,7 +70,7 @@ kludges fix_window_pos,force_icons_size
 
 # max_geometry <geometry>    # maximal tray dimensions; 0 in width/height means
                              # no limit
-max_geometry 8x1
+max_geometry 12x1
 
 # no_shrink [<bool>]         # disables shrink-back mode
 no_shrink false

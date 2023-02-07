@@ -9,5 +9,5 @@ if [ $? -eq 0 ]; then
   kill $stalonetrayPID
 fi
 
-nohup stalonetray --geometry "$icons"x1+"$stalonetrayOffset"+2  --config ~/.config/stalonetrayrc &> /dev/null &
+nohup stalonetray --geometry "$icons"x1+"$stalonetrayOffset"+2 --config ~/.config/stalonetrayrc >> /tmp/stalonetray_$USER 2>&1 &
 
