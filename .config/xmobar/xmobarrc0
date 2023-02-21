@@ -2,7 +2,7 @@
 -- Material Colors
 -- primaryColor="#424242" -- Grey 800
 -- primaryLightColor="#6d6d6d"
--- primaryDarkColor="#1b1b1b"
+-- primaryDarkColor="#424242"
 -- secondaryColor="#b388ff" -- Deep Purple A100
 -- secondaryLightColor="#e7b9ff"
 -- secondaryDarkColor="#805acb"
@@ -15,9 +15,9 @@
 Config { font = "xft:Noto Sans Mono Bold:pixelsize=18:antialias=true:hinting=true"
        , additionalFonts = [ "xft:IosevkaTerm Nerd Font:pixelsize=20:antialias=true:hinting=true"
                              , "xft:IosevkaTerm Nerd Font:pixelsize=28:antialias=true:hinting=true" ]
-       , borderColor = "#1b1b1b"
+       , borderColor = "#424242"
        , border = NoBorder
-       , bgColor = "#1b1b1b"
+       , bgColor = "#424242"
        , fgColor = "#ffffff"
        , alpha = 255
        -- , position = TopP 0 416 -- Left padding leaves space for system tray (8 icons 24px wide and 8px left and right paddings) and right xmobar (200px)

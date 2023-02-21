@@ -13,7 +13,7 @@
 
 # background <color>         # color can be specified as an HTML hex triplet or
                              # as a name from rgb.txt, note that '#' must be quoted
-background "#1b1b1b"
+background "#424242"
 
 # decorations <decspec>      # set trays window decorations; possible values for
                              # decspec are: all, title, border, none
@@ -34,7 +34,7 @@ fuzzy_edges 0
 
 # geometry <geometry>        # tray's geometry in standard X notation; width and
                              # height are specified in slot_size multiples
-geometry 12x1-224+2
+geometry 10x1-224+2
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
@@ -47,7 +47,7 @@ grow_gravity NE
 icon_gravity NE
 
 # icon_size <int>            # specifies dimensions of typical icon slot
-icon_size 24
+icon_size 20
 
 # log_level <level>          # controls the amount of logging output, level can
                              # be err (default), info, or trace (enabled only
@@ -70,7 +70,7 @@ kludges fix_window_pos,force_icons_size
 
 # max_geometry <geometry>    # maximal tray dimensions; 0 in width/height means
                              # no limit
-max_geometry 12x1
+max_geometry 10x1
 
 # no_shrink [<bool>]         # disables shrink-back mode
 no_shrink false
@@ -95,6 +95,7 @@ scrollbars none
 
 # slot_size <int>            # specifies size of icon slot, defaults to
                              # icon_size NEW in 0.8.
+slot_size 28
 
 # skip_taskbar [<bool>]      # hide tray`s window from the taskbar
 skip_taskbar true
