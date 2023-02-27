@@ -19,7 +19,7 @@ module My.MaterialTheme.Colors
 primaryColor :: String
 primaryColor="#424242" -- Grey 800
 primaryLightColor :: String
-primaryLightColor="#6d6d6d"
+primaryLightColor="#757575" -- Grey 600
 primaryDarkColor :: String
 primaryDarkColor="#1b1b1b"
 secondaryColor :: String

@@ -12,18 +12,18 @@
 -- success="#4caf50"
 -- warning="#f9a825"
 
-Config { font = "xft:Noto Sans Mono Bold:pixelsize=18:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:IosevkaTerm Nerd Font:pixelsize=20:antialias=true:hinting=true"
-                             , "xft:IosevkaTerm Nerd Font:pixelsize=28:antialias=true:hinting=true" ]
+Config { font = "Iosevka Fixed SS14 Semi-Bold Expanded 10"
+       , additionalFonts = [ "Symbols Nerd Font 12"
+                             , "Symbols Nerd Font 24" ]
        , borderColor = "#424242"
        , border = NoBorder
        , bgColor = "#424242"
        , fgColor = "#ffffff"
        , alpha = 255
        -- , position = TopP 0 416 -- Left padding leaves space for system tray (8 icons 24px wide and 8px left and right paddings) and right xmobar (200px)
-       , position = Top
-       , textOffset = -1
-       , iconOffset = -1
+       , position = TopH 30
+       , textOffset = 2
+       , iconOffset = 1
        , lowerOnStart = True
        , pickBroadest = False
        , persistent = False
@@ -55,11 +55,11 @@ Config { font = "xft:Noto Sans Mono Bold:pixelsize=18:antialias=true:hinting=tru
                     -- , Run Network "enp30s0f3u4" ["-L", "0", "-H", "32"
 		    --                              "--normal", "green", "--high", "red"] 20
                     , Run Com "echo" ["\
-                                   \ <action=`slock physlock -dl; physlock -dL`><fn=1>\xf840 </fn></action> \ -- lock session
-                                   \ <action=`xdotool key super+Shift+q`><fn=1>\xf842 </fn></action> \        -- log out (stop xmonad)
-                                   \ <action=`systemctl reboot`><fn=1>\xfc07 </fn></action> \
-                                   \ <action=`systemctl suspend`><fn=1>\xf9b1 </fn></action> \
-                                   \ <action=`systemctl poweroff`><fn=1>\xf924 </fn></action>"
+                                   \ <action=`slock physlock -dl; physlock -dL`><fn=1>\xf0341 </fn></action> \ -- lock session
+                                   \ <action=`xdotool key super+Shift+q`><fn=1>\xf0343 </fn></action> \        -- log out (stop xmonad)
+                                   \ <action=`systemctl reboot`><fn=1>\xf0709</fn></action> \
+                                   \ <action=`systemctl suspend`><fn=1>\xf04b2 </fn></action> \
+                                   \ <action=`systemctl poweroff`><fn=1>\xf0425 </fn></action>"
                                    ] "" 36000
                     ]
        , sepChar = "%"
