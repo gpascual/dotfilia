@@ -18,7 +18,7 @@ myKeys = \conf -> mkKeymap conf $
   , ("M-p", spawn "dmenu-xdg_menu")
 
   -- launch dmenu to choose a XDG appliaction
-  , ("M-S-p r", spawn "dmenu_run -i -c -l 20 -h 16  -fn \"Noto Sans Medium-12\"")
+  , ("M-S-p r", spawn "eval \"dmenu_run $DMENU_OPTIONS\"")
 
   -- close focused window
   , ("M-S-c", kill)

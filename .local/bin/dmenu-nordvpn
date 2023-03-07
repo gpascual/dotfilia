@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+remove_toast_lines() {
+  echo "$1" | sed '1,/[^ ]/d'
+}
+
+split_into_lines() {
+  remove_toast_lines "$1" | sed -r 's/\s+/\n/g'
+}
+
+#nordvpn cities $(nordvpn countries | split_into_lines | dmenu -l 20)
+country=$(split_into_lines "$(nordvpn countries)" | eval "dmenu $DMENU_OPTIONS")
+
+if [[ -z $country ]]; then
+  exit 0
+fi
+
+city=$(split_into_lines "$(nordvpn cities "$country")" | eval "dmenu $DMENU_OPTIONS")
+
+if [[ -z $city ]]; then
+  exit 0
+fi
+
+nordvpn connect "$city"
+

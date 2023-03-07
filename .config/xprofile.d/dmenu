@@ -1,0 +1,2 @@
+export DMENU_OPTIONS="-i -c -l 20 -h 16 -fn \"Iosevka Fixed SS14 Extended, Medium-12\""
+

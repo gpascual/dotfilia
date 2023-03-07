@@ -32,7 +32,7 @@ getApplicationCommand() {
 }
 
 listApplicationNames \
-    | dmenu -i -c -l 20 -h 16  -fn "Noto Sans, Medium-12" \
+    | eval "dmenu $DMENU_OPTIONS" \
     | getApplicationCommand \
     | xargs -r -I {} sh -c "{}"
 
