@@ -34,7 +34,7 @@ fuzzy_edges 0
 
 # geometry <geometry>        # tray's geometry in standard X notation; width and
                              # height are specified in slot_size multiples
-geometry 10x1-176+2
+geometry 10x1-0+2
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
@@ -44,7 +44,7 @@ geometry 10x1-176+2
 grow_gravity NE
 
 # icon_gravity <gravity>     # icon placement gravity, one of NW, NE, SW, SE
-icon_gravity NE
+icon_gravity NW
 
 # icon_size <int>            # specifies dimensions of typical icon slot
 icon_size 20
@@ -70,7 +70,7 @@ kludges fix_window_pos,force_icons_size
 
 # max_geometry <geometry>    # maximal tray dimensions; 0 in width/height means
                              # no limit
-max_geometry 10x1
+max_geometry 20x1
 
 # no_shrink [<bool>]         # disables shrink-back mode
 no_shrink false
