@@ -12,9 +12,9 @@
 -- success="#4caf50"
 -- warning="#f9a825"
 
-Config { font = "Iosevka Aile SemiBold 12px"
-       , additionalFonts = [ "Symbols Nerd Font Mono 16px"
-                           , "Symbols Nerd Font Mono 24px" ]
+Config { font = "Iosevka Aile SemiBold 10"
+       , additionalFonts = [ "Symbols Nerd Font Mono 11"
+                           , "Symbols Nerd Font Mono 20" ]
        , borderColor = "#424242"
        , border = NoBorder
        , bgColor = "#424242"

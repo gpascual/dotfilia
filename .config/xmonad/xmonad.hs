@@ -18,7 +18,7 @@ import My.Xmobar (myXmobars)
 
 main = do
   -- start status bars and save their process handlers
-  xmproc0 <- spawnPipe "xmobar $HOME/.config/xmobar/xmobarrc0"
+  xmproc0 <- spawnPipe "xmobar --dpi=\"$(xmobar-dpi)\" $HOME/.config/xmobar/xmobarrc0"
   let
     stdInXmobars = [xmproc0]
   xmonad $ ewmhFullscreen . ewmh $ fullscreenSupport $ docks $ desktopConfig
