@@ -12,7 +12,7 @@
 -- success="#4caf50"
 -- warning="#f9a825"
 
-Config { font = "Iosevka Fixed SS14 Semi-Bold Expanded 12px"
+Config { font = "Iosevka Aile SemiBold 12px"
        , additionalFonts = [ "Symbols Nerd Font Mono 16px"
                            , "Symbols Nerd Font Mono 24px" ]
        , borderColor = "#424242"
