@@ -20,16 +20,16 @@ windowCount = gets $ Just . formatWindowCount . show . length . W.integrate' . W
 
 myXmobars xmprocs = xmobarPP
   { ppOutput = \x -> printLnToXmprocs xmprocs x
-    , ppCurrent = xmobarColor secondaryLightColor "" . wrap "[" "]" -- Current workspace in xmobar
-    , ppVisible = xmobarColor secondaryLightColor ""                -- Visible but not current workspace
-    -- , ppHidden = xmobarColor secondaryLightColor ""              -- Hidden workspaces in xmobar
-    , ppHiddenNoWindows = xmobarColor primaryLightColor ""          -- Hidden workspaces (no windows)
-    , ppWsSep = " / "                                               -- Workspace separators
-    , ppTitle = shorten 50 . wrap "\xf08c6: " ""                    -- Title of active window in xmobar
-    , ppLayout = wrap "\xf0758: " ""                                -- Name of active layout in xmobar
-    , ppSep =  "<fc="++primaryLightColor++"> | </fc>"               -- Separators in xmobar
-    , ppUrgent = xmobarColor alertColor "" . wrap "\xf0026" ""      -- Urgent workspace
-    , ppExtras  = [ windowCount ]                                   -- # of windows current workspace
+    , ppCurrent = xmobarColor secondaryLightColor "" . wrap "[ " " ]" -- Current workspace in xmobar
+    , ppVisible = xmobarColor secondaryLightColor ""                  -- Visible but not current workspace
+    -- , ppHidden = xmobarColor secondaryLightColor ""                -- Hidden workspaces in xmobar
+    , ppHiddenNoWindows = xmobarColor primaryLightColor ""            -- Hidden workspaces (no windows)
+    , ppWsSep = " / "                                                 -- Workspace separators
+    , ppTitle = shorten 50 . wrap "\xf08c6: " ""                      -- Title of active window in xmobar
+    , ppLayout = wrap "\xf0758: " ""                                  -- Name of active layout in xmobar
+    , ppSep =  "<fc="++primaryLightColor++"> | </fc>"                 -- Separators in xmobar
+    , ppUrgent = xmobarColor alertColor "" . wrap "\xf0026" ""        -- Urgent workspace
+    , ppExtras  = [ windowCount ]                                     -- # of windows current workspace
     , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
   }
 
