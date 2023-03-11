@@ -1,2 +1,2 @@
-export DMENU_OPTIONS="-i -c -l 20 -h 16 -fn \"Iosevka Aile SemiBold-12\""
+export DMENU_OPTIONS="-i -c -l 20 -h 16 -fn \"sans Medium-12\""
 

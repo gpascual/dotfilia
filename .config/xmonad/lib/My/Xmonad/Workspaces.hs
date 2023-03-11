@@ -16,7 +16,7 @@ icons = ["\xf120", "\xe796", "\xf05da", "\xe217", "\xf0135", "\xf059f", "\xf163a
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) $ names where
-        clickable names = [ "<action=xdotool key super+" ++ show index ++ "><fn=1>" ++ icon ++ "</fn> " ++ name ++ "</action>" |
+        clickable names = [ "<action=xdotool key super+" ++ show index ++ ">" ++ icon ++ " " ++ name ++ "</action>" |
                       (index, name, icon) <- zip3 [1..8] names icons]
 
 getWs :: String -> String

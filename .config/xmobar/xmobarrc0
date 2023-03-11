@@ -12,9 +12,8 @@
 -- success="#4caf50"
 -- warning="#f9a825"
 
-Config { font = "Iosevka Aile SemiBold 10"
-       , additionalFonts = [ "Symbols Nerd Font Mono 11"
-                           , "Symbols Nerd Font Mono 20" ]
+Config { font = "sans Medium 10"
+       , additionalFonts = [ "sans Medium 20" ]
        , borderColor = "#424242"
        , border = NoBorder
        , bgColor = "#424242"
@@ -34,7 +33,7 @@ Config { font = "Iosevka Aile SemiBold 10"
 		    -- Prints out items such workspaces, layout, etc.
                     Run UnsafeStdinReader
                     -- Time and date
-                    , Run Date "<fn=1>\xf00ee</fn> %a %b %_d %Y %H:%M" "date" 50
+                    , Run Date "\xf00ee %a %b %_d %Y %H:%M" "date" 50
                     -- Cpu usage in percent
                     --, Run Cpu [ "-t", "<fn=1>\xf6c4 </fn><total>%"
                     --          , "-L", "10"
@@ -54,16 +53,15 @@ Config { font = "Iosevka Aile SemiBold 10"
                     -- , Run Network "enp30s0f3u4" ["-L", "0", "-H", "32"
 		    --                              "--normal", "green", "--high", "red"] 20
                     , Run Com "echo" ["\
-                                   \<fn=1>\
                                    \<action=`slock physlock -dl; physlock -dL`>\xf0341</action> \ -- lock session
                                    \<action=`xdotool key super+Shift+q`>\xf0343</action> \        -- log out (stop xmonad)
                                    \<action=`systemctl reboot`>\xf0709</action> \
                                    \<action=`systemctl suspend`>\xf04b2</action> \
-                                   \<action=`systemctl poweroff`><fn=1>\xf0425</fn></action></fn>"
+                                   \<action=`systemctl poweroff`>\xf0425</action>"
                                    ] "" 36000
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <fc=#b388ff><fn=2></fn></fc> <fc=#6d6d6d>|</fc> %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> <icon=/home/gonzalo/.face-icon.xpm/> <fc=#6d6d6d>|</fc> %echo% <fc=#6d6d6d>|</fc> <hspace=280/>"
+       , template = " <fc=#b388ff><fn=1></fn></fc> <fc=#6d6d6d>|</fc> %UnsafeStdinReader% }{ <fc=#e7b9ff>%date%</fc> <fc=#6d6d6d>|</fc> <icon=/home/gonzalo/.face-icon.xpm/> <fc=#6d6d6d>|</fc> %echo% <fc=#6d6d6d>|</fc> <hspace=280/>"
        }
 
