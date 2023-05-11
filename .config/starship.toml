@@ -1,8 +1,9 @@
 # Warning: This config does not include keys that have an unset value
 format = """
    \
-$username\
+$os\
 ${custom.hostname}\
+$username\
 $hostname\
 $shlvl\
 $directory\
@@ -96,6 +97,14 @@ disabled = false
 
 [jobs]
 format = "[\\\\\\\\ $symbol$number ]($style)"
+
+[os]
+format = "[\\\\\\\\](fg:254)[ $symbol ]($style)"
+style = "bold fg:33"
+disabled = false
+
+[os.symbols]
+Arch = "ARCH"
 
 [shell]
 format = "[$indicator ](bold fg:135)[\\\\\\\\ ](fg:254)"

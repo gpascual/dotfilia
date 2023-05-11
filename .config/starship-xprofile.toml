@@ -1,8 +1,9 @@
 # Warning: This config does not include keys that have an unset value
 format = """
    \
-$username\
+$os\
 ${custom.hostname}\
+$username\
 $hostname\
 $shlvl\
 $directory\
@@ -33,10 +34,10 @@ format = "via [$symbol]($style)"
 
 [directory]
 truncate_to_repo = false
-format = "[](bg:242 fg:238)[ $path ]($style)[($read_only )]($read_only_style)[](fg:242) "
-style = "bg:242 fg:15"
-read_only = '🔒'
-read_only_style = "bg:242 fg:9"
+format = "[](bg:247 fg:242)[ $path ]($style)[($read_only)]($read_only_style)[](fg:247) "
+style = "bold bg:247 fg:232"
+read_only = '󰍁 '
+read_only_style = "fg:232 bg:9"
 truncation_length = 3
 
 [docker_context]
@@ -87,6 +88,14 @@ disabled = false
 [jobs]
 format = "[ $symbol$number]($style)"
 
+[os]
+format = "[](fg:254)[ $symbol ]($style)"
+style = "bold bg:254 fg:33"
+disabled = false
+
+[os.symbols]
+Arch = " "
+
 [shell]
 format = "[$indicator ](bold fg:135)[](fg:254)"
 bash_indicator = ' _'
@@ -101,9 +110,9 @@ disabled = false
 format = "[ $time]($style)"
 
 [username]
-format = "[](fg:254)[ $user ]($style)"
+format = "[](fg:238 bg:242)[ $user ]($style)"
 style_root = "bold red"
-style_user = "bold bg:254 fg:242"
+style_user = "bg:242 fg:15"
 show_always = true
 
 [custom]
@@ -112,5 +121,5 @@ show_always = true
 command = "hostnamectl --pretty status"
 when = "true"
 format = "[](fg:254 bg:238)[ $output ]($style)"
-style = "bold bg:238 fg:250"
+style = "bold bg:238 fg:10"
 
