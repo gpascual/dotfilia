@@ -1,6 +1,6 @@
 syntax enable
 set background=dark
-colorscheme PaperColor
+colorscheme dracula
 set number relativenumber
 
 augroup numbertoggle

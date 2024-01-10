@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+THEMES_DIR="$HOME/.vim/pack/themes/start"
+
+
+mkdir -p $THEMES_DIR
+
+rm -Rf $THEMES_DIR/dracula
+
+git clone https://github.com/dracula/vim.git $THEMES_DIR/dracula
+

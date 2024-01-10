@@ -43,6 +43,9 @@ truncation_length = 3
 [docker_context]
 symbol = "docker "
 
+[fill]
+symbol = " "
+
 [git_branch]
 symbol = "git "
 
