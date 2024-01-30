@@ -101,7 +101,7 @@ Arch = " "
 
 [shell]
 format = "[$indicator ](bold fg:135)[](fg:254)"
-bash_indicator = ' _'
+bash_indicator = '  '
 fish_indicator = ' 󰈺 '
 disabled = false
 
