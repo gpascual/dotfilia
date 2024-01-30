@@ -4,10 +4,10 @@
         "vendor-dir": "{$home}/../../.local/share/composer/vendor"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.6",
-        "phpmd/phpmd": "^2.10",
-        "phpstan/phpstan": "^1.0",
-        "vimeo/psalm": "^5.2",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "*",
+        "phpstan/phpstan": "*",
+        "vimeo/psalm": "*",
+        "friendsofphp/php-cs-fixer": "*"
     }
 }
