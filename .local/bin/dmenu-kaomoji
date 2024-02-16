@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+bkt --scope kaomoji --ttl 48h \
+	-- curl "https://api.kaomoji-db.com/alpha/kaomojis/?o=0&l=100&query=&scopes=categories" \
+	| jq -r '.kaomojis | [.[] | ("["+.description + "] " + .string) ] | .[]' \
+	| sort \
+	| eval "dmenu $DMENU_OPTIONS" \
+	| sed -r 's/^.*\] \s*(.*)\s*/\1/g' \
+	| xclip -selection clipboard
+
