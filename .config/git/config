@@ -10,3 +10,5 @@
 	st = status -sb
 [init]
 	defaultBranch = main
+[core]
+	excludesFile = ~/.config/git/info/exclude
