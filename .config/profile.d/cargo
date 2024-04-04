@@ -1,0 +1,4 @@
+# Cargo
+export CARGO_INSTALL_ROOT=$HOME/.local
+export CARGO_HOME=$XDG_CONFIG_HOME/cargo
+

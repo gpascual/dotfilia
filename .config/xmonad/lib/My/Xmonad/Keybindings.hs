@@ -20,6 +20,9 @@ myKeys = \conf -> mkKeymap conf $
   -- launch dmenu to choose a XDG appliaction
   , ("M-S-p r", spawn "eval \"dmenu_run $DMENU_OPTIONS\"")
 
+  -- launch dmenu to choose a kaomoji
+  , ("M-S-p k", spawn "dmenu-kaomoji")
+
   -- close focused window
   , ("M-S-c", kill)
 

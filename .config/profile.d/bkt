@@ -1,0 +1,4 @@
+# BKT cache command outputs
+
+export BKT_CACHE_DIR="$XDG_CACHE_HOME/bkt"
+
