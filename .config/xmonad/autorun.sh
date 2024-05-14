@@ -10,7 +10,7 @@
 run_once /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Compositing
-run_once picom -b --log-file /tmp/picom_${USER}
+run_once picom -b --log-level WARN --log-file /tmp/picom_${USER}
 
 # System tray
 $(sleep 1; replace xmonad-stalonetray >> /tmp/stalonetray_$USER 2>&1) & # the 1s delay practically ensures stalonetray is run after xmobar so it stays over it
