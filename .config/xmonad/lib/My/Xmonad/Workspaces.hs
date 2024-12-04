@@ -12,7 +12,7 @@ names :: [String]
 names = ["shell", "code", "docs", "chat", "tasks", "web", "data", "misc"]
 
 icons :: [String]
-icons = ["\xf120", "\xe796", "\xf05da", "\xe217", "\xf0135", "\xf059f", "\xf163a", "\xf03d6"]
+icons = ["\xf120", "\xf0170", "\xf05da", "\xe217", "\xf0135", "\xf059f", "\xf163a", "\xf03d6"]
 
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) $ names where
