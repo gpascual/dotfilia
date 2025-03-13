@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 function greeter() {
-  if [ $TERM = "xterm-kitty" ]; then
+  if [[ $TERM == xterm* ]]; then
     fortune -s linux startrek \
       | figlet -w $(tput cols) -f $(find /usr/share/figlet/fonts/ -name "*.flf" | shuf -n 1) \
       | lolcat
