@@ -7,7 +7,6 @@
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "*",
         "phpstan/phpstan": "*",
-        "vimeo/psalm": "*",
-        "friendsofphp/php-cs-fixer": "*"
+        "vimeo/psalm": "*"
     }
 }
