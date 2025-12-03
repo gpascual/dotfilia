@@ -1,0 +1,32 @@
+output "Sharp Corporation 0x1515 Unknown" {
+  mode 1920x1200@59.95
+  position 0,0
+  scale 1
+  alias $L7DVSG24
+}
+
+output "Dell Inc. DELL U2422H D2DQF83" {
+  mode 1920x1080@60.00
+  position 0,0
+  scale 1
+  alias $OFFICE_BCN_DUAL_1
+}
+
+output "Dell Inc. DELL U2422H 38CQF83" {
+  mode 1920x1080@60.00
+  transform 90
+  position 1920,-230
+  scale 1
+  alias $OFFICE_BCN_DUAL_2
+}
+
+profile L7DVSG24-default {
+  output $L7DVSG24 enable
+}
+
+profile L7DVSG24-office-bcn-dual {
+  output $L7DVSG24 disable
+  output $OFFICE_BCN_DUAL_1 enable
+  output $OFFICE_BCN_DUAL_2 enable
+}
+
