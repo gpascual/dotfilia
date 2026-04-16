@@ -8,7 +8,7 @@ xdgMenuContents=`xdg_menu --root-menu $rootMenu --format twm`
 # - trimming lines to shown application name only
 # - removing duplicate lines
 # - sorting
-awkListAppsExpr='match($0, /^\s*"(.+)"\s*f\.exec "exec\s*(.*)\s*&\s*"$/, a) && !x[$0]++ {entry=a[1]": "a[2]; print entry | "sort"}'
+awkListAppsExpr='match($0, /^\s*"(.+)"\s*f\.exec "exec\s*(.*[^ ]+)\s*&\s*"$/, a) && !x[$0]++ {entry=a[1]": `"a[2]"`"; print entry | "sort"}'
 
 # locate the app command
 # NOTE: awk places a backslash before each whitespace ("gsub(/ /,...)") to prevent path errors if a folder name has spaces.
@@ -23,12 +23,20 @@ getApplicationCommand() {
     # read the app name coming from the pipe
     read dmenuSelection
 
-    # isolate the name
+    echo $dmenuSelection >&2
+
+    if [[ -z "$dmenuSelection" ]]; then
+      exit 0
+    fi
+
+    # isolate the application name and the execution command
     appName=`echo $dmenuSelection | sed -E 's/^(.*):.*$/\1/g'`
+    execCmd=`echo $dmenuSelection | sed -E 's/^.*: \`(.*)\`$/\1/g' | sed -E 's/^"(.*)"$/\1/'`
 
-    echo "${xdgMenuContents}" | grep "\"${appName}\"" | awk "$awkExtractExecExpr"
+    # check they appear in xdg_menu output and print the execution command
+    echo "${xdgMenuContents}" | grep "\"${appName}\"" | grep "${execCmd}" | awk "$awkExtractExecExpr"
 
-    unset appMatch appName
+    unset appMatch appName execCmd
 }
 
 listApplicationNames \
