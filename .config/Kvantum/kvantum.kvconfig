@@ -1,0 +1,6 @@
+[General]
+theme=KvLibadwaitaDark
+
+[Applications]
+Default=polychromatic-controller
+

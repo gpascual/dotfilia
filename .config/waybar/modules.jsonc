@@ -1,0 +1,97 @@
+// Modules configuration
+{
+    "hyprland/workspaces": {
+        "all-outputs": false,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "shell": "",
+            "code": "",
+            "docs": "󰗚",
+            "chat": "󰍡",
+            "tasks": "󰄵",
+            "web": "󰖟",
+            "data": "󱘺",
+            "misc": "󰏖",
+            "urgent": "",
+            "active": "", // focused workspace on current monitor
+            "visible": "󰮔", // focused workspace on other monitors
+            "default": "",
+            "empty": "" // persistent (created by this split-monitor-workspaces plugin)
+        },
+        "move-to-monitor": true,
+        "sort-by": "id"
+    },
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/window": {
+        "format": "󰣆 : {title}",
+        "separate-outputs": true
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+        "icons": {
+            "blueman": "bluetooth"
+        }
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "󰃮 {:%a %b %d %H:%M %Y}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon}   {format_source}",
+        "format-bluetooth-muted": "  {icon}   {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}%  ",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "image#user": {
+      "exec": "~/.local/bin/waybar-face-image.sh",
+      "interval": 60,
+      "size": 24,
+      "tooltip": false
+    },
+    "custom/hypr-logo": {
+        "format": " "
+    },
+    "custom/hypr-layout": {
+      "exec": "hyprctl activeworkspace | rg tiledLayout | sed -r \"s/\\s*tiledLayout: (.*)\\s*/\\1/\"",
+      "format": "󰝘 : {text}",
+      "interval": 1,
+      "tooltip": false
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+      	"tooltip": false,
+      	"menu": "on-click",
+      	"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+      	"menu-actions": {
+            "shutdown": "systemctl halt",
+            "reboot": "systemctl reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate",
+            "logout": "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
+        }
+    }
+}
+

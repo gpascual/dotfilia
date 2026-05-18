@@ -1,3 +1,18 @@
+output "AOC AG271QG4 0x000004E3" {
+  mode 2560x1440@59.951000
+  position 0,0
+  scale 1
+  alias $HOME_1
+}
+
+output "BNQ BenQ GL2460 N8G00351SL0" {
+  mode 1920x1080@60.00
+  transform 90
+  position 2560,-350
+  scale 0.8333
+  alias $HOME_2
+}
+
 output "Sharp Corporation 0x1515 Unknown" {
   mode 1920x1200@59.95
   position 0,0
@@ -18,6 +33,11 @@ output "Dell Inc. DELL U2422H 38CQF83" {
   position 1920,-230
   scale 1
   alias $OFFICE_BCN_DUAL_2
+}
+
+profile home-dual {
+  output $HOME_1 enable
+  output $HOME_2 enable
 }
 
 profile L7DVSG24-default {
