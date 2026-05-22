@@ -1,7 +1,7 @@
 // Modules configuration
 {
     "hyprland/workspaces": {
-        "all-outputs": false,
+        "all-outputs": true,
         "format": "{icon} {name}",
         "format-icons": {
             "shell": "",
@@ -19,6 +19,9 @@
             "empty": "" // persistent (created by this split-monitor-workspaces plugin)
         },
         "move-to-monitor": true,
+        "persistent-workspaces": {
+            "*": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+        },
         "sort-by": "id"
     },
     "hyprland/submap": {
@@ -86,7 +89,7 @@
       	"menu": "on-click",
       	"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
       	"menu-actions": {
-            "shutdown": "systemctl halt",
+            "shutdown": "systemctl poweroff",
             "reboot": "systemctl reboot",
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate",

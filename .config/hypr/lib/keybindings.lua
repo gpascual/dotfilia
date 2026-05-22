@@ -135,8 +135,8 @@ end)
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 8 do
     local key = tostring(i)
-    hl.bind(mainMod .. " + " .. key, function () return smw.workspace(i) end)
-    hl.bind(mainMod .. " + SHIFT + " .. key, function () return smw.move_to_workspace_silent(i) end)
+    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i, on_current_monitor = true }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- Example special workspace (scratchpad)
@@ -166,10 +166,10 @@ hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 -- Monitors
-hl.bind(mainMod .. " + W", hl.dsp.focus({ monitor = 0 }))
-hl.bind(mainMod .. " + E", hl.dsp.focus({ monitor = 1 }))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ monitor = 0 }))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.window.move({ monitor = 1 }))
+hl.bind(mainMod .. " + W", hl.dsp.focus({ monitor = "-1" }))
+hl.bind(mainMod .. " + E", hl.dsp.focus({ monitor = "+1" }))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ monitor = "-1" }))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.window.move({ monitor = "+1" }))
 
 -- Other
 hl.bind("CTRL + ALT + H", hl.dsp.exec_cmd("cliphist list | wofi --dmenu --pre-display-cmd \"echo '%s' | cut -f 2\" | cliphist decode | wl-copy"))

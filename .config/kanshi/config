@@ -13,13 +13,6 @@ output "BNQ BenQ GL2460 N8G00351SL0" {
   alias $HOME_2
 }
 
-output "Sharp Corporation 0x1515 Unknown" {
-  mode 1920x1200@59.95
-  position 0,0
-  scale 1
-  alias $L7DVSG24
-}
-
 output "Dell Inc. DELL U2422H D2DQF83" {
   mode 1920x1080@60.00
   position 0,0
@@ -35,6 +28,13 @@ output "Dell Inc. DELL U2422H 38CQF83" {
   alias $OFFICE_BCN_DUAL_2
 }
 
+output "Sharp Corporation 0x1515 Unknown" {
+  mode 1920x1200@59.95
+  position 0,0
+  scale 1
+  alias $L7DVSG24
+}
+
 profile home-dual {
   output $HOME_1 enable
   output $HOME_2 enable
@@ -45,8 +45,8 @@ profile L7DVSG24-default {
 }
 
 profile L7DVSG24-office-bcn-dual {
-  output $L7DVSG24 disable
   output $OFFICE_BCN_DUAL_1 enable
   output $OFFICE_BCN_DUAL_2 enable
+  output $L7DVSG24 disable
 }
 
