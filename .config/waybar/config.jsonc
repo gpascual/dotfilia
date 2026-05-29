@@ -28,7 +28,7 @@
         "custom/power"
     ]
 },{
-    "output": ["DP-2", "DP-11"],
+    "output": ["DP-2", "DP-10", "DP-11"],
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)

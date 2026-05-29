@@ -138,6 +138,8 @@ for i = 1, 8 do
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i, on_current_monitor = true }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
+hl.bind(mainMod .. " + 9" , hl.dsp.focus({ workspace = 9, on_current_monitor = true }))
+hl.bind(mainMod .. " + 0" , hl.dsp.focus({ workspace = 9, on_current_monitor = true }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
